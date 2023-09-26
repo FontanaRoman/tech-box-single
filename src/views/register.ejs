@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <!-- HISTORIA DE USUARIO -->
+    <!--
+        Como cliente quiero poder registrarme para estar en su base de datos y acceder a mi perfil e historial de compras de una manera más sencilla y, además, facilitar el proceso de futuras compras.
+    -->
+    <%- include('./partials/header') %>
+    <main>
+        <article class="form-login-register">
+            <form action="/user/userRegister" method="POST" class="form" enctype="multipart/form-data">
+                <h4>Crear una cuenta de</h4>
+                <h2>TechBox</h2>
+                <div class="form__campos">
+                    <input type="user" placeholder="User" name="firstname">
+                    <input type="email" name="email" placeholder="Direccion de correo electronico" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="file" name="image" required>
+                </div>
+                <div class="form__buttom">
+                    <input type="submit" value="Registrarse">
+                </div>
+            </form>
+        </article>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
