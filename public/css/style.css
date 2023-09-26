@@ -466,13 +466,21 @@ body{
         width: 100%;
         height: max-content;
         padding: .5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-flow: row nowrap;
     }
     .productPage__link{
         text-align: center;
         text-decoration: none;
         color: var(--negro-princ);
+        font-size: 1rem;
+        font-weight: 700;
         background-color: var(--verde-princ);
         text-align: center;
+        min-width: calc(100%/3);
     }
     /* ================================================== carro compra ============================================ */
     .ContentCart {

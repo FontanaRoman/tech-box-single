@@ -22,5 +22,13 @@
     "category": "hardware",
     "description": "esta es una descripcion de prueba",
     "image": "1694454973710_img_product.jpg"
+  },
+  {
+    "id": 5,
+    "name": "RAZER HAMMERHEAD TRUE WIRELESS",
+    "description": "Ilumina tu inmersión",
+    "image": "razer-hammerhead.jpg",
+    "category": "hardware",
+    "price": 25000
   }
 ]
