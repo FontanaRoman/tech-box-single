@@ -10,6 +10,8 @@ const multer = require("multer");
 const path = require("path");
 //validaciones middleware
 const validacionesLogin = require("../middleware/validacionLogin");
+//validaciones register 
+const validationRegister = require("../middleware/validacionRegister");
 
 // variable storage encargada de 
 const storage = multer.diskStorage({
@@ -34,6 +36,6 @@ router.post("/userLogin",validacionesLogin,usersControllers.loginAunt)
 // ruta encargada de mostrar la vista register
 router.get("/userRegister", usersControllers.register);
 // ruta encargada de procesar la logica de guardar un registro
-router.post("/userRegister", upload.single("image"),usersControllers.resgisterStore);
+router.post("/userRegister", upload.single("image"), validationRegister,usersControllers.registerStore);
 
 module.exports = router;

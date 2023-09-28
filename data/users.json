@@ -12,5 +12,12 @@
     "email": "fontanaroman585@gmail.com",
     "password": "$2a$10$zG1Ye5FQHCmMqRUMggFYjuBbqwlLdTIe/APiRLIQFGqcBYyimrDOm",
     "image": "1694017103915_img_user_.jpg"
+  },
+  {
+    "id": "055acae6-4926-4d41-b65a-6045f306b6e8",
+    "firstName": "Roman",
+    "email": "fontanaroman585@gmail.com",
+    "password": "$2a$10$egZFwMAxNoWMzn7oCrZQTOoaYPYJ6kprDPmKRMbuTD0DOwPk3ImTq",
+    "image": "default.jpg"
   }
 ]

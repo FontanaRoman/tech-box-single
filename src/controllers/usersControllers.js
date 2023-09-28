@@ -11,6 +11,7 @@ const {v4: uuidv4} = require("uuid");
 const bcrypt = require("bcryptjs");
 // validatior Result
 const {validationResult} = require("express-validator");
+const { error } = require("console");
 
 const usersControllers = {
     // renderiza la vista de logueo
@@ -36,9 +37,21 @@ const usersControllers = {
         res.render("register");
     },
     // metodo encargado de la logica para guardar un registro
-    resgisterStore : function (req,res){
+    registerStore : function (req,res){
+
+        const resultValidation = validationResult(req);
+
+        if(resultValidation.errors.length > 0){
+            console.log(resultValidation)
+            return res.render("register",
+                {
+                    errors : resultValidation.mapped(),
+                    oldData : req.body,
+                }
+            )}
+
         let image = "default.jpg";
-        if( req.file.filename){
+        if (req.file && req.file.filename) {
             image = req.file.filename;
         };
 
@@ -54,7 +67,7 @@ const usersControllers = {
 
         const usersJsonNew = JSON.stringify(users, null, 2);
         fs.writeFileSync(usersJson,usersJsonNew );
-        res.redirect("/");
+        res.redirect("/user/userLogin");
     }
 }
 module.exports = usersControllers;
