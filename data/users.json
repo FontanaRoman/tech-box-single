@@ -5,33 +5,5 @@
     "email": "correoGenerico1@gmail.com",
     "password": "1124eeeSDFF555",
     "image": "default.jpg"
-  },
-  {
-    "id": "fcfe4de8-47f4-4f09-b4c4-3a19c9a546fe",
-    "firstName": "Roman",
-    "email": "fontanaroman585@gmail.com",
-    "password": "$2a$10$zG1Ye5FQHCmMqRUMggFYjuBbqwlLdTIe/APiRLIQFGqcBYyimrDOm",
-    "image": "1694017103915_img_user_.jpg"
-  },
-  {
-    "id": "f34d87f5-c207-407a-a76d-1763b450bdbe",
-    "firstName": "Roman",
-    "email": "desarrolladorautodidacta@gmail.com",
-    "password": "$2a$10$1X0fiFMfojV6gox97aTYpeIhYxqSNdolGbpynJ0Z.rvYTDLKZyODq",
-    "image": "default.jpg"
-  },
-  {
-    "id": "9314799f-2d9b-4300-8f02-876ed1f2e0ba",
-    "firstName": "Cartman",
-    "email": "cartmanelgordo@gmail.com",
-    "password": "$2a$10$c5sQB1Topww17oDRYy5qBuoK82fLYrc0a2OtXz6Hcl8.rZQ9h9HK2",
-    "image": "1696176081487_img_user_.png"
-  },
-  {
-    "id": "137da738-482a-424e-9d47-c77e7ebf4e52",
-    "firstName": "wendy",
-    "email": "wendy@gmail.com",
-    "password": "$2a$10$rNoEuPKDbnC4zDwP6GAybOhyaOJ9RSqDnnpS7wlyK0WZjzNFM05fe",
-    "image": "1696176630770_img_user_.png"
   }
 ]
