@@ -97,9 +97,11 @@ const usersControllers = {
                 })
             })
     },
+    // vista del formulario de edicion
     edit : function(req,res){
         res.render("editDataUser", {user : req.session.UserLogged})
     },
+    // logica para guardar la edicion del usuario
     storeEdit : function(req,res){
 
         let imagen = "default.jpg";

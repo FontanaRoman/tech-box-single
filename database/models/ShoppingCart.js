@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     // Corrección: Cambia "foreingKey" a "foreignKey"
     ShoppingCart.hasOne(models.Product, {
       as: "producto",
-      foreignKey: "product_id"
+      foreignKey: "id"
     });
     ShoppingCart.belongsTo(models.User, {
       as: "usuario",

@@ -16,6 +16,18 @@
                             <%= errors.productname.msg %>
                         </p>
                     <% } %>
+                    <input type="number" name="stock" placeholder="cantidad de productos disponibles" value="<%= locals.oldData ? oldData.stock : null %>">
+                    <% if (locals.errors && errors.stock) { %>
+                        <p class="form__error">
+                            <%= errors.stock.msg %>
+                        </p>
+                    <% } %>
+                    <input type="number" name="discount" placeholder="descuento" value="<%= locals.oldData ? oldData.discount : null %>">
+                    <% if (locals.errors && errors.discount) { %>
+                        <p class="form__error">
+                            <%= errors.discount.msg %>
+                        </p>
+                    <% } %>
                     <input type="text" name="description" placeholder="Descripcion del producto" value="<%= locals.oldData ? oldData.description : null %>">
                     <% if (locals.errors && errors.description) { %>
                         <p class="form__error">
@@ -29,9 +41,14 @@
                         </p>
                     <% } %>
                     <select name="category" id="category">
-                        <option value="hardware" selected>Hardware</option>
-                        <option value="software">software</option>
-                        <option value="perifericos">perifericos</option>
+                        <% category.forEach(e => { %>
+                            <option value="<%= e.id %>"><%= e.name %></option>
+                        <% }) %>
+                    </select>
+                    <select name="marca" id="category">
+                        <% marcas.forEach(e => { %>
+                            <option value="<%= e.id %>"><%= e.name %></option>
+                        <% }) %>
                     </select>
                     <input type="file" name="image" placeholder="Imagen del producto" value="<%= locals.oldData ? oldData.file : null %>">
                     <% if (locals.errors && errors.image) { %>

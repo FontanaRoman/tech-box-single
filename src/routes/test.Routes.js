@@ -4,9 +4,9 @@ const db = require('../../database/models');
 
 
 router.get("/TITO", function (req, res) {
-    db.User.findAll()
-        .then(User => {
-            res.json(User);
+    db.Product.findAll()
+        .then(producto => {
+            res.json(producto);
         })
 });
 

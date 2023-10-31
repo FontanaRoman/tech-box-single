@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   Favorite.associate = function(models) {
     Favorite.belongsTo(models.Product, {
       as: "producto",
-      foreignKey: "product_id"
+      foreignKey: "id"
     });
 
     Favorite.belongsTo(models.User, {
