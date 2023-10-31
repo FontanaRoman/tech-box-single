@@ -11,60 +11,50 @@
     <%- include('./partials/header') %>
     <main>
         <article class="form-login-register">
-            <form action="/user/userRegister" method="POST" class="form" enctype="multipart/form-data">
-                <h4>Crear una cuenta de</h4>
+            <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST" class="form" enctype="multipart/form-data">
+                <h4>Editar informacion</h4>
                 <h2>TechBox</h2>
                 <div class="form__campos">
-                    <input type="text" placeholder="User" name="firstname" value="<%= locals.oldData ? oldData.firstname : null %>">
+                    <input type="text" placeholder="User" name="firstname" value="<%= user.name %>">
                     <% if (locals.errors && errors.firstname) { %>
                         <p class="form__error">
                             <%= errors.firstname.msg %>
                         </p>
                     <% } %>
-                    <input type="text" placeholder="lastName" name="lastName" value="<%= locals.oldData ? oldData.lastName : null %>">
+                    <input type="text" placeholder="lastName" name="lastName" value="<%= user.lastname %>">
                     <% if (locals.errors && errors.lastName) { %>
                         <p class="form__error">
                             <%= errors.lastName.msg %>
                         </p>
                     <% } %>
-                    <input type="email" name="email" placeholder="Direccion de correo electronico" value="<%= locals.oldData ? oldData.email : null %>">
+                    <input type="email" name="email" placeholder="Direccion de correo electronico" value="<%= user.email %>">
                     <% if (locals.errors && errors.email) { %>
                         <p class="form__error">
                             <%= errors.email.msg %>
                         </p>
                     <% } %>
-                    <input type="password" name="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null %>">
-                    <% if (locals.errors && errors.password) { %>
-                        <p class="form__error">
-                            <%= errors.password.msg %>
-                        </p>
-                    <% } %>
-                    <input type="number" name="phone" placeholder="Phone" value="<%= locals.oldData ? oldData.phone : null %>">
+                    <input type="number" name="phone" placeholder="Phone" value="<%= user.phone %>">
                     <% if (locals.errors && errors.phone) { %>
                         <p class="form__error">
                             <%= errors.phone.msg %>
                         </p>
                     <% } %>
-                    <input type="text" name="postalCode" placeholder="Postal code" value="<%= locals.oldData ? oldData.postalCode : null %>">
+                    <input type="text" name="postalCode" placeholder="Postal code" value="<%= user.postalCode %>">
                     <% if (locals.errors && errors.postalCode) { %>
                         <p class="form__error">
                             <%= errors.postalCode.msg %>
                         </p>
                     <% } %>
-                    <input type="text" name="address" placeholder="Address" value="<%= locals.oldData ? oldData.address : null %>">
+                    <input type="text" name="address" placeholder="Address" value="<%= user.address %>">
                     <% if (locals.errors && errors.address) { %>
                         <p class="form__error">
                             <%= errors.address.msg %>
                         </p>
                     <% } %>
-                    <input type="file" name="image" value="<%= locals.oldData ? oldData.image : null %>">
+                    <input type="file" name="image" value="<%= user.image %>">
                 </div>
                 <div class="form__buttom">
                     <input type="submit" value="Registrarse">
-                </div>
-                <div class="form__register-login">
-                    <p>¿tienes cueta?</p>
-                    <a href="/user/userLogin" class="form__link">Inicia sesion!</a>
                 </div>
             </form>
         </article>

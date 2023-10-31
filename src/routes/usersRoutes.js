@@ -41,6 +41,10 @@ router.get("/userRegister", guesMiddleware, usersControllers.register);
 // ruta encargada de procesar la logica de guardar un registro
 router.post("/userRegister", upload.single("image"), validationRegister,usersControllers.registerStore);
 
+// ruta encargada de edicion de datos
+router.get("/edit",authMiddleware, usersControllers.edit)
+// ruta encargada de la edicion de datos del usuario
+router.put("/edit/:id",upload.single("image"),validationRegister,usersControllers.storeEdit)
 //ruta encargada para mostrar la vista del perfil
 router.get("/profile", authMiddleware, usersControllers.profile);
 

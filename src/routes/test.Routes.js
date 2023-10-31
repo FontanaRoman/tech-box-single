@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const db = require('../../database/models');
-const Category = require("../../database/models/Category");
+
 
 router.get("/TITO", function (req, res) {
-    db.Category.findAll()
-        .then(Category => {
-            res.json(Category);
+    db.User.findAll()
+        .then(User => {
+            res.json(User);
         })
 });
 

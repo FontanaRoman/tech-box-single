@@ -7,7 +7,7 @@ Etiquetas de documentacion. No afectan en nada si son removidas.
 
 module.exports = (sequelize, DataTypes)=>{
     const User = sequelize.define("User",{
-        id_user : {
+        id : {
             type : DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement : true
@@ -52,6 +52,10 @@ module.exports = (sequelize, DataTypes)=>{
         address : {
             type : DataTypes.STRING,
             allowNull : false
+        },
+        email : {
+            type : DataTypes.STRING,
+            allowNull : false
         }
     },
     {
@@ -63,7 +67,7 @@ module.exports = (sequelize, DataTypes)=>{
     User.associate = function(models){
         User.belongsTo(models.Favorite,{
           as : "favoritos",
-          foreignKey : "user_id"
+          foreignKey : "id"
         })
         User.belongsTo(models.Favorite,{
             as : "productosFavoritos",
@@ -71,7 +75,7 @@ module.exports = (sequelize, DataTypes)=>{
           })
           User.belongsTo(models.ShoppingCart,{
             as : "carrito",
-            foreignKey : "user_id"
+            foreignKey : "id"
           })
           User.belongsTo(models.PurchasedProduct,{
             as : "productosComprados",
