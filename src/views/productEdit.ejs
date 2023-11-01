@@ -10,31 +10,31 @@
                 <h4>Editar un producto</h4>
                 <h2>TechBox</h2>
                 <div class="form__campos">
-                    <input type="text" name="productname" placeholder="Nombre del producto" value="<%= product.name %>">
+                    <input type="text" name="productname" placeholder="Nombre del producto" value="<%= locals.oldData ? oldData.productname : product.name %>">
                     <% if (locals.errors && errors.productname) { %>
                         <p class="form__error">
                             <%= errors.productname.msg %>
                         </p>
                     <% } %>
-                    <input type="number" name="stock" placeholder="cantidad de productos disponibles" value="<%= product.name %>">
+                    <input type="number" name="stock" placeholder="cantidad de productos disponibles" value="<%= locals.oldData ? oldData.stock : product.stock %>">
                     <% if (locals.errors && errors.stock) { %>
                         <p class="form__error">
                             <%= errors.stock.msg %>
                         </p>
                     <% } %>
-                    <input type="number" name="discount" placeholder="descuento" value="<%= product.discount %>">
+                    <input type="number" name="discount" placeholder="descuento" value="<%= locals.oldData ? oldData.discount : product.discount %>">
                     <% if (locals.errors && errors.discount) { %>
                         <p class="form__error">
                             <%= errors.discount.msg %>
                         </p>
                     <% } %>
-                    <input type="text" name="description" placeholder="Descripcion del producto" value="<%= product.description %>">
+                    <input type="text" name="description" placeholder="Descripcion del producto" value="<%= locals.oldData ? oldData.description : product.description %>">
                     <% if (locals.errors && errors.description) { %>
                         <p class="form__error">
                             <%= errors.description.msg %>
                         </p>
                     <% } %>
-                    <input type="number" name="price" placeholder="Precio del producto" value="<%= product.price %>">
+                    <input type="number" name="price" placeholder="Precio del producto" value="<%= locals.oldData ? oldData.price : product.price %>">
                     <% if (locals.errors && errors.price) { %>
                         <p class="form__error">
                             <%= errors.price.msg %>
@@ -50,7 +50,7 @@
                             <option value="<%= e.id %>"><%= e.name %></option>
                         <% }) %>
                     </select>
-                    <input type="file" name="image" placeholder="Imagen del producto" value="<%= product.image %>">
+                    <input type="file" name="image" placeholder="Imagen del producto" value="<%= locals.oldData ? oldData.file : product.image %>">
                     <% if (locals.errors && errors.image) { %>
                         <p class="form__error">
                             <%= errors.image.msg %>

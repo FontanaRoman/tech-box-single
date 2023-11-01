@@ -25,7 +25,7 @@ const productsControllers = {
     // renderiza el detalle de un producto
     productDetail : function(req,res){
         const idProduct = req.params.id;
-        db.findByPk(idProduct)
+        db.Product.findByPk(idProduct)
             .then(product=>{
                 res.render("productDetail", {product});
             })
@@ -50,31 +50,39 @@ const productsControllers = {
     },
     // metodo encargado de la logica para almacenar el producto  
     storeLoadProduct : function(req, res){
+
         const resultValidation = validationResult(req);
 
         if(resultValidation.errors.length > 0){
-            return res.render("loadProduct",
-            {
-                errors : resultValidation.mapped(),
-                oldData : req.body,
-            }
-        )}
-
-        db.Product.create(
-            {
-            name: req.body.productname,
-            description: req.body.description,
-            image : req.file.filename,
-            stock : req.body.stock,
-            discount : req.body.discount,
-            category_id: req.body.category,
-            state : 1,
-			price: req.body.price,
-            brand_id : req.body.marca,
-			
-            }
-        )    
-            .then(res.redirect("/products"))
+            db.Brand.findAll()
+            .then(marcas => {
+                db.Category.findAll()
+                    .then(category => {
+                        res.render("loadProduct", 
+                        {
+                            errors : resultValidation.mapped(),
+                            oldData : req.body,
+                            marcas : marcas,
+                            category : category,
+                        });
+                    })
+            })
+        }else {
+            db.Product.create(
+                {
+                name: req.body.productname,
+                description: req.body.description,
+                stock : req.body.stock,
+                discount : req.body.discount,
+                category_id: req.body.category,
+                state : 1,
+                price: req.body.price,
+                brand_id : req.body.marca,
+                image : req.file.filename,
+                }
+            )    
+                .then(res.redirect("/products"))
+        }
     },
     // renderiza el formulario de edicion
     edit : function (req,res){
@@ -100,30 +108,42 @@ const productsControllers = {
         const resultValidation = validationResult(req);
 
         if(resultValidation.errors.length > 0){
-            return res.render("productEdit",
-            {
-                errors : resultValidation.mapped(),
-                oldData : req.body
-            }
-        )}
 
-        db.Product.update(
-            {
-                name: req.body.productname,
-                description: req.body.description,
-                image : req.file.filename,
-                stock : req.body.stock,
-                discount : req.body.discount,
-                category_id: req.body.category,
-                state : 1,
-                price: req.body.price,
-                brand_id : req.body.marca,   
-            },
-            {
-              where : {id : req.params.id}  
-            }
-        )
-            .then(res.redirect("/products"))
+        db.Product.findByPk(req.params.id)
+        .then(product=>{
+            db.Brand.findAll()
+            .then(marcas => {
+                db.Category.findAll()
+                    .then(category => {
+                        res.render("productEdit", 
+                        {
+                            errors : resultValidation.mapped(),
+                            oldData : req.body,
+                            marcas : marcas,
+                            category : category,
+                            product : product,
+                        });
+                    })
+            })
+        })} else {
+            db.Product.update(
+                {
+                    name: req.body.productname,
+                    description: req.body.description,
+                    image : req.file.filename,
+                    stock : req.body.stock,
+                    discount : req.body.discount,
+                    category_id: req.body.category,
+                    state : 1,
+                    price: req.body.price,
+                    brand_id : req.body.marca,   
+                },
+                {
+                  where : {id : req.params.id}  
+                }
+            )
+                .then(res.redirect("/products"))
+        }
     },
     // renderiza el formulario de eliminacion
     deleteForm : function (req,res){
