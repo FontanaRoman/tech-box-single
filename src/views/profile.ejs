@@ -11,23 +11,40 @@
     <main class="profile-content">
         <section class="profile">
             <article class="profile__user">
-                <div class="profile__image">
-                    <img src="/img/users/<%= user.image %>" alt="">
-                </div>
-                <section class="profile__data">
-                    <ul>
-                        <li>
-                            <%= user.name %>
-                        </li>
-                        <li>
-                            <%= user.email %>
-                        </li>
-                        <li>
-                            <a href="/user/logout">logout</a>
-                        </li>
-                    </ul>
-                </section>
+                    <img src="/img/users/<%= user.image %>" alt="" class="profile__image">
             </article>
+            <section class="profile__data">
+                <h3>Tus Datos</h3>
+                <ul>
+                    <li>
+                        <a href="/user/logout">logout</a>
+                    </li>
+                    <li>
+                        <p>Nombre de usuario</p>
+                        <%= user.name %>
+                    </li>
+                    <li>
+                        <p>Apellido</p>
+                        <%= user.lastname %>
+                    </li>
+                    <li>
+                        <p>Correo electronico</p>
+                        <%= user.email %>
+                    </li>
+                    <li>
+                        <p>Direccion</p>
+                        <%= user.address %>
+                    </li>
+                    <li>
+                        <p>Codigo postal</p>
+                        <%= user.postalCode %>
+                    </li>
+                    <li>
+                        <p>telefono</p>
+                        <%= user.phone %>
+                    </li>
+                </ul>
+            </section>
         </section>
     </main>
 

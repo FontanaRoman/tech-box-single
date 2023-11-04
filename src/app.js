@@ -5,6 +5,8 @@ const app = express();
 const session = require("express-session");
 //require cookie
 const cookies = require("cookie-parser");
+// middleware de recuerdame
+const recuerdame = require("../src/middleware/cookieMiddleware")
 // use para el metodo session
 app.use(session(
     {
@@ -27,7 +29,6 @@ const path = require("path");
 //require mmethodOverride
 const methodOverride = require('method-override');
 
-
 // config templete engina y ruta elementos estaticos
 app.set("view engine", "ejs")
 app.set('views', path.join(__dirname, 'views'));
@@ -43,6 +44,9 @@ app.use("/",mainRoutes);
 app.use("/home",test);
 app.use("/products",productsRoutes)
 app.use("/user", usersRoutes);
+
+//aplicamos el recuerdame
+app.use(recuerdame)
 
 // indicamos como proceder ante el error 404
 app.use((req, res, next) => {

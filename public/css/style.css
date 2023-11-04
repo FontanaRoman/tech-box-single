@@ -8,13 +8,24 @@
     --gris-claro: rgb(182, 182, 182);
     --blanco-perla: rgb(245, 245, 245);
     --grisOscuro: rgb(39, 39, 39);
-    --red : rgb(255, 0, 0);
+    --red : rgb(255, 31, 31);
 }
 /* ============================================== Estilos Globales ======================================== */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+.errores__form{
+    width: 70%;
+    list-style: none;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+}
+.errores__form li{
+    color: var(--red);
 }
 h1,h2,h3,h4,h5,h6{
     color: var(--verde-princ);
@@ -497,45 +508,30 @@ body{
         flex-flow: column nowrap;
     }
     .profile__user{
+        padding: 2rem;
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: start;
         flex-flow: row wrap;
-        align-items: center;
-        gap: 1rem;
+        align-items: start;
     }
     .profile__image{
         width: 50%;
         height: 50%;
-        border-radius: 100%;
-    }
-    .profile__image img{
-        width: 100%;
-        height: 100%;
+        border-radius: 50%;
     }
     .profile__data{
-        width: 50%;
-        height: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }´
-    .profile__data ul{
-        width: 10rem;
-    }
-    .profile__data ul li{
         width: 100%;
-        list-style: none;
-        color: var(--verde-princ-o);
-        text-align: center;
+        height: max-content;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-flow: column nowrap;
+        margin-left: 2rem;
+        gap: 1rem;
     }
-    .profile__data a{
-        text-decoration: none;
-        color: var(--negro-princ);
-        width: 10rem;
-        height: 1rem;
-        background-color: var(--verde-princ-o);
+    .profile__data h3{
+        width: 100%;
         text-align: center;
     }
     /* ================================================== carro compra ============================================ */

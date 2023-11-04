@@ -11,54 +11,56 @@
     <%- include('./partials/header') %>
     <main>
         <article class="form-login-register">
-            <form action="/user/userRegister" method="POST" class="form" enctype="multipart/form-data">
+            <form action="/user/userRegister" method="POST" class="form validacionesForm" enctype="multipart/form-data">
                 <h4>Crear una cuenta de</h4>
                 <h2>TechBox</h2>
                 <div class="form__campos">
-                    <input type="text" placeholder="User" name="firstname" value="<%= locals.oldData ? oldData.firstname : null %>">
+                    <input type="text" placeholder="User" name="firstname" value="<%= locals.oldData ? oldData.firstname : null %>" class="nombre">
                     <% if (locals.errors && errors.firstname) { %>
                         <p class="form__error">
                             <%= errors.firstname.msg %>
                         </p>
                     <% } %>
-                    <input type="text" placeholder="lastName" name="lastName" value="<%= locals.oldData ? oldData.lastName : null %>">
+                    <input type="text" placeholder="lastName" name="lastName" value="<%= locals.oldData ? oldData.lastName : null %>" class="apellido">
                     <% if (locals.errors && errors.lastName) { %>
                         <p class="form__error">
                             <%= errors.lastName.msg %>
                         </p>
                     <% } %>
-                    <input type="email" name="email" placeholder="Direccion de correo electronico" value="<%= locals.oldData ? oldData.email : null %>">
+                    <input type="email" name="email" placeholder="Direccion de correo electronico" value="<%= locals.oldData ? oldData.email : null %>" class="correo">
                     <% if (locals.errors && errors.email) { %>
                         <p class="form__error">
                             <%= errors.email.msg %>
                         </p>
                     <% } %>
-                    <input type="password" name="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null %>">
+                    <input type="password" name="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null %>" class="contraseña">
                     <% if (locals.errors && errors.password) { %>
                         <p class="form__error">
                             <%= errors.password.msg %>
                         </p>
                     <% } %>
-                    <input type="number" name="phone" placeholder="Phone" value="<%= locals.oldData ? oldData.phone : null %>">
+                    <input type="number" name="phone" placeholder="Phone" value="<%= locals.oldData ? oldData.phone : null %>" class="telefono">
                     <% if (locals.errors && errors.phone) { %>
                         <p class="form__error">
                             <%= errors.phone.msg %>
                         </p>
                     <% } %>
-                    <input type="text" name="postalCode" placeholder="Postal code" value="<%= locals.oldData ? oldData.postalCode : null %>">
+                    <input type="text" name="postalCode" placeholder="Postal code" value="<%= locals.oldData ? oldData.postalCode : null %>" class="codigoPostal">
                     <% if (locals.errors && errors.postalCode) { %>
                         <p class="form__error">
                             <%= errors.postalCode.msg %>
                         </p>
                     <% } %>
-                    <input type="text" name="address" placeholder="Address" value="<%= locals.oldData ? oldData.address : null %>">
+                    <input type="text" name="address" placeholder="Address" value="<%= locals.oldData ? oldData.address : null %>" class="direccion">
                     <% if (locals.errors && errors.address) { %>
                         <p class="form__error">
                             <%= errors.address.msg %>
                         </p>
                     <% } %>
-                    <input type="file" name="image" value="<%= locals.oldData ? oldData.image : null %>">
+                    <input type="file" name="image" value="<%= locals.oldData ? oldData.image : null %>" class="imagen">
                 </div>
+                <ul class="errores__form">
+                </ul>
                 <div class="form__buttom">
                     <input type="submit" value="Registrarse">
                 </div>
@@ -70,6 +72,7 @@
         </article>
     </main>
     <%- include('./partials/footer') %>
+    <script src="/js/validationScriptRegister.js"></script>
     <script src="/js/script.js"></script>
 </body>
 

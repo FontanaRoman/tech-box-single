@@ -15,17 +15,17 @@
    <%- include('./partials/header') %>
     <main>
         <article class="form-login-register">
-            <form action="/user/userLogin" method="POST" class="form">
+            <form action="/user/userLogin" method="POST" class="form validacionesForm">
                 <h4>Inicia sesión con una cuenta de</h4>
                 <h2>TechBox</h2>
                 <div class="form__campos">
-                    <input type="email" name="email" placeholder="Direccion de correo electronico">
+                    <input type="email" name="email" placeholder="Direccion de correo electronico" class="correo">
                     <% if (locals.errors && errors.email) { %>
                         <p class="form__error">
                             <%= errors.email.msg %>
                         </p>
                     <% } %>
-                    <input type="password" name="password" placeholder="password">
+                    <input type="password" name="password" placeholder="password" class="contraseña">
                     <% if (locals.errors && errors.password) { %>
                         <p class="form__error">
                             <%= errors.password.msg %>
@@ -39,6 +39,8 @@
                     </div>
                     <a href="/cambiarContraseña" class="form__link">¿Has olvidado tu contraseña?</a>
                 </div>
+                <ul class="errores__form">
+                </ul>
                 <div class="form__buttom">
                     <input type="submit" value="Iniciar"></input>
                 </div>
@@ -50,6 +52,7 @@
         </article>
     </main>
     <%- include('./partials/footer') %>
+    <script src="/js/validationLogin.js"></script>
     <script src="/js/script.js"></script>
 </body>
 

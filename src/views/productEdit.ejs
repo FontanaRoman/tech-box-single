@@ -6,35 +6,35 @@
     <%- include('./partials/header') %>
     <main>
         <article class="form-login-register">
-            <form action="/products/<%= product.id %>/edit?_method=PUT" method="POST" class="form" enctype="multipart/form-data">
+            <form action="/products/<%= product.id %>/edit?_method=PUT" method="POST" class="form validacionesForm" enctype="multipart/form-data">
                 <h4>Editar un producto</h4>
                 <h2>TechBox</h2>
                 <div class="form__campos">
-                    <input type="text" name="productname" placeholder="Nombre del producto" value="<%= locals.oldData ? oldData.productname : product.name %>">
+                    <input type="text" name="productname" placeholder="Nombre del producto" value="<%= locals.oldData ? oldData.productname : product.name %>"  class="nombre">
                     <% if (locals.errors && errors.productname) { %>
                         <p class="form__error">
                             <%= errors.productname.msg %>
                         </p>
                     <% } %>
-                    <input type="number" name="stock" placeholder="cantidad de productos disponibles" value="<%= locals.oldData ? oldData.stock : product.stock %>">
+                    <input type="number" name="stock" placeholder="cantidad de productos disponibles" value="<%= locals.oldData ? oldData.stock : product.stock %>" class="cantidad">
                     <% if (locals.errors && errors.stock) { %>
                         <p class="form__error">
                             <%= errors.stock.msg %>
                         </p>
                     <% } %>
-                    <input type="number" name="discount" placeholder="descuento" value="<%= locals.oldData ? oldData.discount : product.discount %>">
+                    <input type="number" name="discount" placeholder="descuento" value="<%= locals.oldData ? oldData.discount : product.discount %>"  >
                     <% if (locals.errors && errors.discount) { %>
                         <p class="form__error">
                             <%= errors.discount.msg %>
                         </p>
                     <% } %>
-                    <input type="text" name="description" placeholder="Descripcion del producto" value="<%= locals.oldData ? oldData.description : product.description %>">
+                    <input type="text" name="description" placeholder="Descripcion del producto" value="<%= locals.oldData ? oldData.description : product.description %>" class="descriccion">
                     <% if (locals.errors && errors.description) { %>
                         <p class="form__error">
                             <%= errors.description.msg %>
                         </p>
                     <% } %>
-                    <input type="number" name="price" placeholder="Precio del producto" value="<%= locals.oldData ? oldData.price : product.price %>">
+                    <input type="number" name="price" placeholder="Precio del producto" value="<%= locals.oldData ? oldData.price : product.price %>" class="precio">
                     <% if (locals.errors && errors.price) { %>
                         <p class="form__error">
                             <%= errors.price.msg %>
@@ -50,19 +50,22 @@
                             <option value="<%= e.id %>"><%= e.name %></option>
                         <% }) %>
                     </select>
-                    <input type="file" name="image" placeholder="Imagen del producto" value="<%= locals.oldData ? oldData.file : product.image %>">
+                    <input type="file" name="image" placeholder="Imagen del producto" value="<%= locals.oldData ? oldData.file : product.image %>" class="imagen">
                     <% if (locals.errors && errors.image) { %>
                         <p class="form__error">
                             <%= errors.image.msg %>
                         </p>
                     <% } %>
                 </div>
+                <ul class="errores__form">
+                </ul>
                 <div class="form__buttom">
-                    <input type="submit" value="Cargar Producto"></input>
+                    <input type="submit" value="Editar Producto"></input>
                 </div>
             </form>
         </article>
     </main>
+    <script src="/js/validationProduct.js"></script>
 </body>
 </html>
 
