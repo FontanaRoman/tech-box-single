@@ -51,4 +51,16 @@ router.get("/profile", authMiddleware, usersControllers.profile);
 // ruta parta desloguearse
 router.get("/logout", usersControllers.logout);
 
+
+                    // APIS
+
+
+// api para traer los usuarios
+router.get("/api/allUser", usersControllers.allUserApi);
+// api total de usuarios
+router.get("/api/totalUser",usersControllers.totalUserApi);
+// api para traer un usuario por id
+router.get("/api/user/:id",usersControllers.userIdFind);
+// api para traer el ultimo usuario
+router.get("/api/lastUser",usersControllers.lastUser);
 module.exports = router;

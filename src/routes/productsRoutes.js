@@ -45,5 +45,18 @@ router.put("/:id/edit", upload.single("image"),validationProduct,productsControl
 router.get("/:id/delete", productsControllers.deleteForm);
 router.delete("/:id/delete", productsControllers.delete);
 
+// APIS
+
+// Api que trae todos los productos
+router.get("/api/allProduct",productsControllers.allProducts);
+
+// api que busca un producto por su ID
+router.get("/api/:id", productsControllers.productId)
+
+// api que trae cuantos productos hay en una categoria
+router.get("/api/categories",productsControllers.categoryProduct)
+
+// Api la cantidad de productos
+router.get("/api/allProduct",productsControllers.totalProducts);
 // exportamos router para trabajarlo en app
 module.exports = router;

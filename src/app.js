@@ -21,7 +21,6 @@ app.use(cookies());
 const mainRoutes = require("./routes/mainRoutes");
 const productsRoutes = require("./routes/productsRoutes");
 const usersRoutes = require("./routes/usersRoutes");
-const test = require("./routes/test.Routes")
 
 // require metodo path
 const path = require("path");
@@ -41,7 +40,6 @@ app.use(express.json());
 
 // indicamos los routes
 app.use("/",mainRoutes);
-app.use("/home",test);
 app.use("/products",productsRoutes)
 app.use("/user", usersRoutes);
 

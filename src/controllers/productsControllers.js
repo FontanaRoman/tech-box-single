@@ -160,6 +160,50 @@ const productsControllers = {
     )
         .then(res.redirect("/products"))
     
+    },
+
+    // APIS
+
+    // api allProducts
+    allProducts : (req,res)=>{
+        db.Product.findAll()
+            .then((products)=>{
+                res.json(
+                    {
+                        status : 200,
+                        data : products
+                    }
+                )
+            })
+    },
+    // api totalProducts
+    totalProducts : (req,res)=>{
+        db.Product.findAll()
+            .then((products)=>{
+                res.json(
+                    {
+                        status : 200,
+                        data : products.length,
+                    }
+                )
+            })
+    },
+    // api category products
+    categoryProduct : (req,res)=>{
+        const marcaId = req.body.id
+        db.Product.findAll()
+
+    },
+    // api product id
+    productId : (req,res)=>{
+        const id = req.params.id;
+        db.findByPk(id)
+            .then((product)=>{
+                res.json({
+                    state : 200, 
+                    data : product,
+                })
+            })
     }
 }
 
