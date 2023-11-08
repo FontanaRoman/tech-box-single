@@ -5,7 +5,6 @@ window.addEventListener("load",()=>{
     alert("funcionando")
 
     formulario.addEventListener("submit",(e)=>{
-        e.preventDefault()
 
         const error = [];
 
@@ -43,6 +42,8 @@ window.addEventListener("load",()=>{
             for (let i = 0; i < error.length; i++) {
                 cargarErrores.innerHTML += `<li> ${error[i]} </li>`  
             }
+
+            e.preventDefault()
         }
     })
 })

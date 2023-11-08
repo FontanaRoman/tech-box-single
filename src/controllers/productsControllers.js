@@ -162,6 +162,13 @@ const productsControllers = {
     
     },
 
+    admin : (req,res)=>{
+        db.Product.findAll()
+            .then(productos=>{
+                res.render("productsAdmin",{productos})
+            })
+    },
+
     // APIS
 
     // api allProducts

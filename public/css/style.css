@@ -452,20 +452,20 @@ body{
     }
     .productsPage_products{
         width: 17rem;
-        min-height: 25rem;
+        height: 21rem;
         background: transparent;
         border-bottom: 1px solid var(--verde-princ);
         overflow: hidden;
     }
     .productsPage__img{
         width: 100%;
-        height: 40%;
-        border-bottom: 1px solid var(--verde-princ);
-    }
-    .productPage__detail{
-        width: 100%;
         height: 60%;
-        padding: .3rem;
+        border-bottom: 1px solid var(--verde-princ);
+        overflow: hidden;
+    }
+    .productsPage__img img{
+        width: 100%;
+        height: 100%;
     }
     .productPage__detail h4{
         color: var(--verde-princ);
@@ -475,13 +475,11 @@ body{
     }
     .productPage__buttons{
         width: 100%;
-        height: max-content;
-        padding: .5rem;
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
-        gap: 1rem;
         flex-flow: row nowrap;
+        height: 30%;
     }
     .productPage__link{
         text-align: center;
@@ -492,12 +490,14 @@ body{
         background-color: var(--verde-princ);
         text-align: center;
         min-width: calc(100%/3);
+        border-right: 1px solid #000000;
     }
     /* ================================================== perfil ============================================ */
     .profile-content{
         width: 100vw;
-        height: max-content;
+        height: 100%;
         padding: .3rem;
+        overflow: hidden;
     }
     .profile{
         width: 100%;
@@ -508,12 +508,33 @@ body{
         flex-flow: column nowrap;
     }
     .profile__user{
-        padding: 2rem;
+        padding: 1rem;
         width: 100%;
         display: flex;
-        justify-content: start;
+        justify-content: space-evenly;
         flex-flow: row wrap;
-        align-items: start;
+        align-items: center;
+    }
+    .profile__link{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile__link ul{
+        list-style: none;
+    }
+    .profile__link ul li{
+        display: flex;
+        justify-content: start;
+        align-items: end;
+    }
+    .profile__link ul li a{
+        text-decoration: none;
+        color: var(--blanco-perla);
+        transition: ease-in .3s;
+    }
+    .profile__link ul li a:hover{
+        color: var(--verde-princ);
     }
     .profile__image{
         width: 50%;
@@ -529,6 +550,9 @@ body{
         flex-flow: column nowrap;
         margin-left: 2rem;
         gap: 1rem;
+    }
+    .profile__data ul{
+        list-style: none;
     }
     .profile__data h3{
         width: 100%;
@@ -1471,6 +1495,21 @@ body{
             color: #0e0e0e;
         }
 
+    }
+
+    /* ================================================== perfil ============================================ */
+    .profile__link ul li a{
+        font-size: 2rem;
+    }
+    .profile__image{
+        width: 30%;
+        height: 30%;
+    }
+    .profile__data ul{
+        font-size: 1.5rem;
+    }
+    .profile__data h3{
+        font-size: 2rem;
     }
 
     @media screen and (min-width: 1360px) {

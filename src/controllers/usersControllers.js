@@ -36,7 +36,7 @@ const usersControllers = {
             {
                 name: req.body.firstname,
                 lastname: req.body.lastName,
-                rol: 1,
+                rol: 0,
                 image: imagen,
                 registerDate: new Date(),
                 password: bcrypt.hashSync(req.body.password, 10),
@@ -68,18 +68,21 @@ const usersControllers = {
         }
 
         db.User.findOne({
-            email: req.body.email
+            where : {email: req.body.email}
         })
 
             .then(user => {
-                let userToLogin = user
+                console.log(user)
+                db.User.findByPk(user.id)
+
+                    .then(user=>{
+                        let userToLogin = user
 
                 if (userToLogin) {
                     let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
-                    if (isOkThePassword) {
+                    if (userToLogin.email == req.body.email && isOkThePassword == true) {
                         delete userToLogin.password;
                         req.session.UserLogged = userToLogin;
-
                         if (req.body.recuerdame != undefined) {
                             res.cookie("recordame", userToLogin.email, { maxAge: 60000 })
                         }
@@ -102,6 +105,8 @@ const usersControllers = {
                         }
                     }
                 })
+                    })
+
             })
     },
     // vista del formulario de edicion
