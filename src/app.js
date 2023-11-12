@@ -21,6 +21,7 @@ app.use(cookies());
 const mainRoutes = require("./routes/mainRoutes");
 const productsRoutes = require("./routes/productsRoutes");
 const usersRoutes = require("./routes/usersRoutes");
+const apiRoutes = require("./routes/apiRoutes")
 
 // require metodo path
 const path = require("path");
@@ -29,9 +30,9 @@ const path = require("path");
 const methodOverride = require('method-override');
 
 // config templete engina y ruta elementos estaticos
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 // config para method override
 app.use(methodOverride('_method'));
@@ -40,8 +41,9 @@ app.use(express.json());
 
 // indicamos los routes
 app.use("/",mainRoutes);
-app.use("/products",productsRoutes)
+app.use("/products",productsRoutes);
 app.use("/user", usersRoutes);
+app.use("/api",apiRoutes);
 
 //aplicamos el recuerdame
 app.use(recuerdame)

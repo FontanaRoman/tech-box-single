@@ -1,11 +1,11 @@
-const path = require("path");
-const fs = require("fs");
-const productsJson = path.join(__dirname, '../../data/productos.json');
-const productos = JSON.parse(fs.readFileSync(productsJson, 'utf-8'));
+const db = require("../../database/models");
 
 const mainControllers = {
     index : function(req,res){
-        res.render("index", {productos : productos});
+        db.Product.findAll()
+            .then(productos=>{
+                res.render("index", {productos : productos});
+            })
     }
 }
 

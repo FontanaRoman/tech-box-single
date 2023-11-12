@@ -50,18 +50,5 @@ router.delete("/:id/delete", productsControllers.delete);
 // vista del crud para el admin de los productos
 router.get("/admin", adminMiddleware,productsControllers.admin);
 
-// APIS
-
-// Api que trae todos los productos
-router.get("/api/allProduct",productsControllers.allProducts);
-
-// api que busca un producto por su ID
-router.get("/api/:id", productsControllers.productId);
-
-// api que trae cuantos productos hay en una categoria
-router.get("/api/categories",productsControllers.categoryProduct);
-
-// Api la cantidad de productos
-router.get("/api/allProduct",productsControllers.totalProducts);
 // exportamos router para trabajarlo en app
 module.exports = router;

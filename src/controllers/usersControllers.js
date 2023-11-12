@@ -194,16 +194,23 @@ const usersControllers = {
     },
     // last user
     lastUser: (req, res) => {
-        db.User.findAll({
+        db.User.findOne({
             order: [["id", "DESC"]],
-            limit: 1,
         })
-            .then((user) => {
+        .then((user) => {
+    
+            if (user) {
                 res.json({
                     status: 200,
-                    data: user[0],
-                })
-            })
+                    data: user,
+                });
+            } else {
+                res.json({
+                    status: 404,
+                    message: 'No se encontraron usuarios',
+                });
+            }
+        })
     },
 }
 module.exports = usersControllers;

@@ -1,18 +1,7 @@
-//metodo path para direcciones
-const path = require("path");
-//metodo fs para leer JSON y escribirlos
-const fs = require("fs");
-// datos del json
-const productsJson = path.join(__dirname, '../../data/productos.json');
-const productos = JSON.parse(fs.readFileSync(productsJson, 'utf-8'));
-// libreria uuid para crear identificadores unicos
-const {v4: uuidv4} = require("uuid")
 // express validator , validaciones
 const {validationResult} = require("express-validator")
-
+// database
 const db = require("../../database/models");
-
-
 
 const productsControllers = {
     // renderiza los productos
@@ -198,13 +187,23 @@ const productsControllers = {
     // api category products
     categoryProduct : (req,res)=>{
         const marcaId = req.body.id
-        db.Product.findAll()
+        db.Brand.findAll()
+        .then((marcas)=>{
+            db.Product.findAll()
+                .then(productos =>{
+                    res.json({
+                        state : 200, 
+                        marcas : marcas,
+                        productos,
+                    })
+                })
+        })
 
     },
     // api product id
     productId : (req,res)=>{
         const id = req.params.id;
-        db.findByPk(id)
+        db.Product.findByPk(id)
             .then((product)=>{
                 res.json({
                     state : 200, 
