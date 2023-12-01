@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <!-- HISTORIA DE USUARIO -->
+    <!--
+        Como cliente quiero poder loguearme para acceder a mi historial de compras.
+        
+        Como cliente quiero tener la opción de que el sitio me recuerde para no escribir mi usuario y contraseña cada vez.
+
+        Como cliente quiero poder recuperar la contraseña para poder ingresar si me la olvido.
+    -->
+   <%- include('./partials/header') %>
+    <main>
+        <article class="form-login-register">
+            <form action="/user/userLogin" method="POST" class="form validacionesForm">
+                <h4>Inicia sesión con una cuenta de</h4>
+                <h2>TechBox</h2>
+                <div class="form__campos">
+                    <input type="email" name="email" placeholder="Direccion de correo electronico" class="correo">
+                    <% if (locals.errors && errors.email) { %>
+                        <p class="form__error">
+                            <%= errors.email.msg %>
+                        </p>
+                    <% } %>
+                    <input type="password" name="password" placeholder="password" class="contraseña">
+                    <% if (locals.errors && errors.password) { %>
+                        <p class="form__error">
+                            <%= errors.password.msg %>
+                        </p>
+                    <% } %>
+                </div>
+                <div class="form__recuerdame">
+                    <div class="form__recuerdame-campos">
+                        <input type="checkbox" name="recuerdame">
+                        <label for="recuerdame">Recuerdame</label>
+                    </div>
+                    <a href="/cambiarContraseña" class="form__link">¿Has olvidado tu contraseña?</a>
+                </div>
+                <ul class="errores__form">
+                </ul>
+                <div class="form__buttom">
+                    <input type="submit" value="Iniciar"></input>
+                </div>
+                <div class="form__register-login">
+                    <p>¿No tienes cueta?</p>
+                    <a href="/user/userRegister" class="form__link">registrate !</a>
+                </div>
+            </form>
+        </article>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="/js/validationLogin.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

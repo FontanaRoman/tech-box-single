@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+   <%- include('./partials/header') %>
+    
+    <main class="productsPage">
+        <% productos.forEach(product => { %>
+            <article class="productsPage_products">
+                <section class="productsPage__img">
+                    <img src="/img/product/<%= product.image %>" alt="" >
+                </section>
+                <section class="productPage__detail">
+                    <h4><%= product.name %></h4>
+                </section>
+                <section class="productPage__buttons">
+                    <a href="/products/detail/<%= product.id %>" class="productPage__link">Detalles</a>
+                    <a href="/products/<%= product.id %>/edit" class="productPage__link">Edit</a>
+                    <a href="/products/<%= product.id %>/delete" class="productPage__link">Delete</a>
+                </section>
+            </article>
+        <% }) %>
+    </main>
+
+    <%- include('./partials/footer') %>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

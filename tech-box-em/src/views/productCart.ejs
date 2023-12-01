@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <!-- HISTORIA DE USUARIO -->
+    <!--
+        Como cliente quiero poder acceder al detalle de mi carrito de compras en cualquier momento para finalizar la compra.
+        
+        Como cliente quiero poder modificar productos del carrito para poder eliminarlos de la compra o modificar la cantidad.
+    -->
+    <%- include('./partials/header') %>
+    <main>
+        <section class="ContentCart">
+            <article class="cart">
+                <h2 class="cart__title">
+                    Carritos de productos
+                </h2>
+                <div class="cart__product">
+                    <img src="/img/product/1701364607145_img_product.jpg" alt="" class="cart__image">
+                    <div class="cart__product-content">
+                        <h5 class="cart__product-title">
+                            Corsair K95
+                        </h5>
+                        <p class="cart__product-detail">
+                            teclado mecanico con swich blue opticos
+                        </p>
+                        <div class="cart__product-button">
+                            <button>
+                                Eliminar
+                            </button>
+                            <button>
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart__product">
+                    <img src="/img/product/1701365512833_img_product.jpg" alt="" class="cart__image">
+                    <div class="cart__product-content">
+                        <h5 class="cart__product-title">
+                            Ram 8gb
+                        </h5>
+                        <p class="cart__product-detail">
+                            terrible podes jugar el cs 1.6 a 60fps estables en bajo
+                        </p>
+                        <div class="cart__product-button">
+                            <button>
+                                Eliminar
+                            </button>
+                            <button>
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="detailBuy">
+                <div class="detailBuy__product">
+                    <p>
+                        productos (2)
+                    </p>
+                    <p>
+                        $630.000
+                    </p>
+                </div>
+                <div class="detailBuy__product">
+                    <p>Envio</p>
+                    <p>$7.800</p>
+                </div>
+                <div class="detailBuy__product">
+                    <p>
+                        Total
+                    </p>
+                    <p class="detailBut__price">
+                        $637.800
+                    </p>
+                </div>
+                <section class="cart__compra">
+                    <button>
+                        COMPRAR
+                    </button>
+                </section>
+            </article>
+        </section>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

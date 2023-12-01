@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+  <body>
+    <!-- HISTORIA DE USUARIO -->
+    <!-- 
+        Como cliente quiero ver un resumen de la oferta de productos para poder decidir rápidamente si quedarme o buscar el producto en otro sitio.
+
+        Como cliente quiero que el sitio funcione bien en mi teléfono celular para poder acceder en cualquier momento.
+    -->
+    <%- include('./partials/header') %>
+      <main>
+        <!-- carrusel -->
+        <div class="carrousel">
+          <div class="carrousel__slice">
+            <img src="img/publicidad-banner/amd-ryzen-radeon-banner.jpg" alt=""
+              class="carrousel__img carrousel__section" />
+            <img src="img/publicidad-banner/logi.jpg" alt="" class="carrousel__img carrousel__section" />
+            <img src="img/publicidad-banner/nvidia-gtx-2080.jpg" alt="" class="carrousel__img carrousel__section" />
+          </div>
+
+          <ul class="carrousel__puntos">
+            <li class="carrousel__punto active"></li>
+            <li class="carrousel__punto"></li>
+            <li class="carrousel__punto"></li>
+          </ul>
+        </div>
+        <!-- productos destacados -->
+        <div class="carrousel__products">
+          <section class="particles__container">
+            <article class="particle">
+              <span style="--i: 8.3"></span>
+              <span style="--i: 4.5"></span>
+              <span style="--i: 11.5"></span>
+              <span style="--i: 16.5"></span>
+              <span style="--i: 6.4"></span>
+              <span style="--i: 2.9"></span>
+              <span style="--i: 9.3"></span>
+              <span style="--i: 15.3"></span>
+              <span style="--i: 11.5"></span>
+              <span style="--i: 18"></span>
+              <span style="--i: 5"></span>
+              <span style="--i: 14"></span>
+              <span style="--i: 12"></span>
+              <span style="--i: 4"></span>
+              <span style="--i: 2"></span>
+              <span style="--i: 7"></span>
+              <span style="--i: 17"></span>
+              <span style="--i: 2.8"></span>
+              <span style="--i: 14.3"></span>
+              <span style="--i: 3"></span>
+              <span style="--i: 4.154"></span>
+              <span style="--i: 15.2"></span>
+              <span style="--i: 8"></span>
+              <span style="--i: 3.1242"></span>
+              <span style="--i: 7"></span>
+              <span style="--i: 18.6"></span>
+              <span style="--i: 2"></span>
+              <span style="--i: 12"></span>
+              <span style="--i: 15"></span>
+              <span style="--i: 6"></span>
+              <span style="--i: 2.3"></span>
+              <span style="--i: 9"></span>
+              <span style="--i: 11"></span>
+              <span style="--i: 4.2"></span>
+              <span style="--i: 3.14"></span>
+              <span style="--i: 6.12"></span>
+              <span style="--i: 4.123"></span>
+              <span style="--i: 2.15"></span>
+              <span style="--i: 2.6"></span>
+              <span style="--i: 3.3"></span>
+              <span style="--i: 14.124"></span>
+              <span style="--i: 9.4"></span>
+              <span style="--i: 1.5"></span>
+              <span style="--i: 6.11"></span>
+              <span style="--i: 13"></span>
+              <span style="--i: 8.2"></span>
+              <span style="--i: 3.2"></span>
+              <span style="--i: 16.5"></span>
+              <span style="--i: 2.9"></span>
+              <span style="--i: 9.3"></span>
+              <span style="--i: 15.3"></span>
+              <span style="--i: 11.5"></span>
+              <span style="--i: 18"></span>
+              <span style="--i: 15.2"></span>
+              <span style="--i: 8"></span>
+              <span style="--i: 3.1242"></span>
+              <span style="--i: 18"></span>
+              <span style="--i: 13"></span>
+              <span style="--i: 8"></span>
+              <span style="--i: 14"></span>
+              <span style="--i: 9.4"></span>
+              <span style="--i: 15"></span>
+              <span style="--i: 6.11"></span>
+              <span style="--i: 13"></span>
+              <span style="--i: 8.2"></span>
+            </article>
+          </section>
+          <i class="fa-solid fa-arrow-left arrow-left"></i>
+          <div class="carrousel__products-slice">
+            <% for (let i = 0; i < Math.min(3, productos.length); i++) { %>
+              <div class="product">
+                <!-- Puedes acceder a las propiedades del producto usando productos[i].propiedad -->
+                <img src="/img/product/<%= productos[i].image %>" alt="" class="product__img" />
+                <div class="product-detail">
+                  <h4 class="product__title"><%= productos[i].name %></h4>
+                  <div class="product__compra">
+                    <p class="product__price">$<%= productos[i].price %></p>
+                    <a href="/products/detail/<%= productos[i].id %>" class="product__buy">Comprar</a>
+                  </div>
+                </div>
+              </div>
+            <% } %>
+            
+          </div>
+          <i class="fa-solid fa-arrow-right arrow-right"></i>
+        </div>
+        <!-- productos generales -->
+        <article id="productGenerales">
+          <% productos.slice(0, 5).forEach(producto => { %>
+            <div class="bloques_index">
+              <div class="img__products">
+                <img src="/img/product/<%= producto.image %>" alt="" class="imagenes__producst">
+              </div>
+              <div class="linkinfo">
+                <h3 class="product__title product__title-modify">
+                  <%= producto.name %>
+                </h3>
+                <div class="product__info product__info-modify">
+                  <p>
+                    <%= producto.description %>
+                  </p>
+                </div>
+                <a href="/products/detail/<%= producto.id %>" target="_blank">DETALLES</a>
+              </div>
+            </div>
+          <% }) %>          
+        </article>
+      </main>
+      <%- include('./partials/footer') %>
+        <script src="https://kit.fontawesome.com/24faa51053.js" crossorigin="anonymous"></script>
+        <script src="/js/script.js"></script>
+  </body>
+
+</html>

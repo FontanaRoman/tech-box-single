@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+
+    <%- include('./partials/header') %>
+    <main>
+        <article class="form-login-register">
+            <form action="/products/loadProduct" method="POST" class="form validacionesForm" enctype="multipart/form-data">
+                <h4>Cargar Producto</h4>
+                <h2>TechBox</h2>
+                <div class="form__campos">
+                    <input type="text" name="productname" placeholder="Nombre del producto" value="<%= locals.oldData ? oldData.productname : null %>" class="nombre">
+                    <% if (locals.errors && errors.productname) { %>
+                        <p class="form__error">
+                            <%= errors.productname.msg %>
+                        </p>
+                    <% } %>
+                    <input type="number" name="stock" placeholder="cantidad de productos disponibles" value="<%= locals.oldData ? oldData.stock : null %>" class="cantidad">
+                    <% if (locals.errors && errors.stock) { %>
+                        <p class="form__error">
+                            <%= errors.stock.msg %>
+                        </p>
+                    <% } %>
+                    <input type="number" name="discount" placeholder="descuento" value="<%= locals.oldData ? oldData.discount : null %>">
+                    <% if (locals.errors && errors.discount) { %>
+                        <p class="form__error">
+                            <%= errors.discount.msg %>
+                        </p>
+                    <% } %>
+                    <input type="text" name="description" placeholder="Descripcion del producto" value="<%= locals.oldData ? oldData.description : null %>" class="descriccion">
+                    <% if (locals.errors && errors.description) { %>
+                        <p class="form__error">
+                            <%= errors.description.msg %>
+                        </p>
+                    <% } %>
+                    <input type="number" name="price" placeholder="Precio del producto" value="<%= locals.oldData ? oldData.precio : null %>" class="precio">
+                    <% if (locals.errors && errors.price) { %>
+                        <p class="form__error">
+                            <%= errors.price.msg %>
+                        </p>
+                    <% } %>
+                    <select name="category" id="category">
+                        <% category.forEach(e => { %>
+                            <option value="<%= e.id %>"><%= e.name %></option>
+                        <% }) %>
+                    </select>
+                    <select name="marca" id="category">
+                        <% marcas.forEach(e => { %>
+                            <option value="<%= e.id %>"><%= e.name %></option>
+                        <% }) %>
+                    </select>
+                    <input type="file" name="image" placeholder="Imagen del producto" value="<%= locals.oldData ? oldData.file : null %>" class="imagen">
+                    <% if (locals.errors && errors.image) { %>
+                        <p class="form__error">
+                            <%= errors.image.msg %>
+                        </p>
+                    <% } %>
+                </div>
+                <ul class="errores__form">
+                </ul>
+                <div class="form__buttom">
+                    <input type="submit" value="Cargar Producto"></input>
+                </div>
+            </form>
+        </article>
+    </main>
+    <script src="/js/validationProduct.js"></script>
+</body>
+</html>
+
+
+
+
+
+

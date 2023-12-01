@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+
+    <%- include('./partials/header') %>
+
+    
+    <main class="profile-content">
+        <section class="profile">
+            <article class="profile__user">
+                    <img src="/img/users/<%= user.image %>" alt="" class="profile__image">
+                    <section class="profile__link">
+                        <ul>
+                            <li>
+                                <a href="/user/logout">Cerrar session</a>
+                            </li>
+                            <li>
+                                <a href="/user/logout">Editar perfil</a>
+                            </li>
+                            <li>
+                                <a href="/user/logout">Mis Compras</a>
+                            </li>
+                            <li>
+                                <a href="/user/logout">Mis favoritos</a>
+                            </li>
+                        </ul>
+                    </section>
+            </article>
+            <section class="profile__data">
+                <h3>Tus Datos</h3>
+                <ul>
+                    <li>
+                        <h5>Nombre de usuario</h5>
+                        <%= user.name %>
+                    </li>
+                    <li>
+                        <h5>Apellido</h5>
+                        <%= user.lastname %>
+                    </li>
+                    <li>
+                        <h5>Correo electronico</h5>
+                        <%= user.email %>
+                    </li>
+                    <li>
+                        <h5>Direccion</h5>
+                        <%= user.address %>
+                    </li>
+                    <li>
+                        <h5>Codigo postal</h5>
+                        <%= user.postalCode %>
+                    </li>
+                    <li>
+                        <h5>telefono</h5>
+                        <%= user.phone %>
+                    </li>
+                </ul>
+            </section>
+        </section>
+    </main>
+
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>

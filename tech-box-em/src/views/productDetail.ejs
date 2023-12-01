@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <!-- HISTORIA DE USUARIO -->
+
+    <!--
+        Como cliente quiero poder ver toda la información relevante del producto para decidir si voy a comprarlo.
+
+        Como cliente quiero poder agregar fácilmente el producto a mi carrito para poder comprarlo.
+    -->
+    <%- include('./partials/header') %>
+    <main class="productoDetail-content">
+        <article class="producto">
+            <div class="productoImage">
+                <img src="/img/product/<%= product.image %>" alt="">
+            </div>
+            <div class="productoDetail">
+                <h2>
+                    <%= product.name %>
+                </h2>
+                <p>
+                    <%= product.description %>
+                </p>
+                <P class="productoPrice">
+                    US$<%= product.price %>
+                </P>
+                <div class="productoGaratias">
+                    <div class="garantias">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Garantia de 36 meses
+                    </div>
+                    <div class="garantias">
+                        <i class="fa-solid fa-check"></i>
+                        Disponible en stock
+                    </div>
+                    <div class="garantias">
+                        <i class="fa-solid fa-truck"></i>
+                        Envio gratis y asegurado
+                    </div>
+                </div>
+                <button class="producto-card">Agregar al carro</button>
+            </div>
+        </article>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
