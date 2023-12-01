@@ -167,7 +167,8 @@ const productsControllers = {
                 res.json(
                     {
                         status : 200,
-                        data : products
+                        data : products,
+                        length : products.length,
                     }
                 )
             })
@@ -210,7 +211,27 @@ const productsControllers = {
                     data : product,
                 })
             })
-    }
+    },
+    // last Product
+    lastUser: (req, res) => {
+        db.Product.findOne({
+            order: [["id", "DESC"]],
+        })
+        .then((product) => {
+    
+            if (product) {
+                res.json({
+                    status: 200,
+                    data: product,
+                });
+            } else {
+                res.json({
+                    status: 404,
+                    message: 'No se encontraron usuarios',
+                });
+            }
+        })
+    },
 }
 
 module.exports = productsControllers;

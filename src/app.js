@@ -7,6 +7,8 @@ const session = require("express-session");
 const cookies = require("cookie-parser");
 // middleware de recuerdame
 const recuerdame = require("../src/middleware/cookieMiddleware")
+// CORS
+const cors = require("cors")
 // use para el metodo session
 app.use(session(
     {
@@ -33,6 +35,12 @@ const methodOverride = require('method-override');
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static("public"));
+
+//Cors
+let corsOptions = {
+    origin: "*"
+}
+app.use(cors(corsOptions))
 
 // config para method override
 app.use(methodOverride('_method'));

@@ -2,7 +2,6 @@ window.addEventListener("load",()=>{
     const formulario = document.querySelector(".validacionesForm");
     const cargarErrores = document.querySelector(".errores__form");
 
-    alert("funcionando")
 
     formulario.addEventListener("submit",(e)=>{
 

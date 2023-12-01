@@ -10,6 +10,7 @@ router.get("/user/totalUser", usersControllers.totalUserApi);
 router.get("/user/:id", usersControllers.userIdFind);
 
 // Rutas de productos
+router.get("/lastProduct",productsControllers.lastUser)
 router.get("/allProducts", productsControllers.allProducts);
 router.get("/product/:id", productsControllers.productId);
 router.get("/categoryProducts", productsControllers.categoryProduct);
